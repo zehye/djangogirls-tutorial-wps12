@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_extensions',  # shell_plus 를 사용하기 위한 library
     # 이 패키지는 application 으로 취급
     'blog',
 ]
