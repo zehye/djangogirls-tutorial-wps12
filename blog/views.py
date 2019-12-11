@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 
+from blog.models import Post
+
 
 def post_list(request):
     # print('h:', HttpResponse(post_list))
@@ -10,5 +12,10 @@ def post_list(request):
 
     # content = loader.render_to_string('post_list.html', None, request)
     # return HttpResponse(content)
-    return render(request, 'post_list.html')
+
+    posts = Post.objects.all()
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'post_list.html', context)
 
