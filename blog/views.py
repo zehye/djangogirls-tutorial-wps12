@@ -19,3 +19,6 @@ def post_list(request):
     }
     return render(request, 'post_list.html', context)
 
+
+def post_detail(request):
+    return render(request, 'post_detail.html')
