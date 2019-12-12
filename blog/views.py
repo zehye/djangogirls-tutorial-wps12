@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template import loader
 
 from blog.models import Post
@@ -20,9 +20,17 @@ def post_list(request):
     return render(request, 'post_list.html', context)
 
 
-def post_detail(request):
-    post = Post.objects.all()[0]
+def post_detail(request, pk):
+    # print('request:', request)
+    # posts = Post.objects.filter(pk=pk)
+    # post = posts[0]
+    # try:
+    #     post = Post.objects.filter(pk=pk)
+    # except Post.DoesNotExist:
+    #     return HttpResponse('없음!!')
+    post = get_object_or_404(Post, pk=pk)
     context = {
         'post': post,
     }
     return render(request, 'post_detail.html', context)
+
