@@ -6,7 +6,8 @@
             <div class="card-body">
                 <!-- 아래 텍스트에 링크추가, 클릭 시 해당하는 /post-detail/어딘가/로 이동하도록 함 -->
                 <h5 class="card-title">
-                    <a href="/post-detail/{{ post.pk }}/">{{ post.title }}</a>
+{#                    <a href="/post-detail/{{ post.pk }}/">{{ post.title }}</a>#}
+                    <a href="{%  url 'post-detail-name' pk=post.pk %}">{{ post.title }}</a>
                 </h5>
 
                 <!--
