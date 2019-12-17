@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h4>이 포스트를 정말로 삭제하시겠습니까?</h4>
+        <ul>
+            <li>제목: {{ post.title }}</li>
+            <li>작성일자: {{ post.created_date }}</li>
+        </ul>
+        <form action="{% url 'url-name-post-delete' pk=post.pk %}" method="POST" class="d-inline-block">
+            {% csrf_token %}
+            <button class="btn btn-danger btn-sm">삭제</button>
+        </form>
+        <a href="{% url 'url-name-post-list' %}" class="btn btn-secondary btn-sm">목록화면으로</a>
+    </div>
+{% endblock %}
